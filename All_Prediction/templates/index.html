@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prediction Navigator</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <ul class="navbar">
+        <li class="navitem">
+            <img src="{{ url_for('static', filename='LevelAlpha.png') }}" alt="logo" width="50" height="50" />
+        </li>
+        <li class="navitem"><a href="#">Diabetes Prediction</a></li>
+        <li class="navitem"><a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a></li>
+        <li class="navitem"><a href="{{ url_for('lungs') }}">Cancer Prediction</a></li>
+    </ul>
+
+    <h1>Diabetes Prediction Navigator</h1>
+    <div class="card-container">
+        <div class="card">
+            <div class="form-container">
+                <form id="predictionForm">
+                    <label for="inputData_0">Pregnancy</label>
+                    <input type="number" id="inputData_0" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_1">Glucose</label>
+                    <input type="number" id="inputData_1" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_2">Blood Pressure</label>
+                    <input type="number" id="inputData_2" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_3">Skin Thickness</label>
+                    <input type="number" id="inputData_3" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_4">Insulin</label>
+                    <input type="number" id="inputData_4" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_5">BMI</label>
+                    <input type="number" id="inputData_5" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_6">Diabetes Pedigree Function</label>
+                    <input type="number" id="inputData_6" name="inputData[]" step="any" required /><br />
+                    <label for="inputData_7">Age</label>
+                    <input type="number" id="inputData_7" name="inputData[]" step="any" required /><br />
+                    <br />
+                    <input type="submit" value="Predict" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Prediction Result</h2>
+            <p id="predictionResult"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("predictionForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var inputArray = [];
+            for (var pair of formData.entries()) {
+                inputArray.push(parseFloat(pair[1]));
+            }
+            var jsonData = {
+                input_data: inputArray,
+            };
+            fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jsonData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    var predictionResult = data.result;
+                    var modal = document.getElementById("myModal");
+                    var closeBtn = document.getElementById("closeModal");
+                    var predictionResultElement = document.getElementById("predictionResult");
+
+                    // Display the prediction result in the modal
+                    predictionResultElement.textContent = predictionResult;
+                    modal.style.display = "block";
+
+                    // Close the modal when the close button is clicked
+                    closeBtn.onclick = function () {
+                        modal.style.display = "none";
+                    };
+
+                    // Close the modal when the user clicks anywhere outside the modal content
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    };
+                })
+                .catch((error) => {
+                    console.log("Error:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>
