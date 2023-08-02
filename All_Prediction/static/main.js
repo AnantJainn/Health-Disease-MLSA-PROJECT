@@ -1,5 +1,5 @@
 const predictionForm = document.getElementById("prediction-form");
-const resultDiv = document.getElementById("result-div");
+const resultDiv = document.getElementById("predictionResult");;
 
 predictionForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -49,5 +49,31 @@ predictionForm.addEventListener("submit", function (event) {
     .then((result) => {
       const message = result.message;
       resultDiv.textContent = message;
+      showModal();
     });
 });
+
+// Function to show the prediction result modal
+function showModal() {
+  const modal = document.getElementById("myModal");
+  const span = document.getElementById("closeModal");
+
+ 
+  const predictionResult = document.getElementById("predictionResult");
+  predictionResult.textContent = resultDiv.textContent;
+
+
+  modal.style.display = "block";
+
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+ 
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+}

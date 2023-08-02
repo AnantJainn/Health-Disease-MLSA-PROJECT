@@ -9,14 +9,14 @@
 <body>
     <ul class="navbar">
         <li class="navitem">
-            <img src="LevelAlpha.png" alt="logo" width="50" height="50" />
+            <img src="{{ url_for('static', filename='LevelAlpha.png') }}" alt="logo" width="50" height="50" />
         </li>
         <li class="navitem"><a href="{{ url_for('home') }}">Diabetes Prediction</a></li>
         <li class="navitem"><a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a></li>
         <li class="navitem"><a href="{{ url_for('lungs') }}">Cancer Prediction</a></li>
     </ul>
 
-    <h1>Diabetes Prediction Navigator</h1>
+    <h1>Lung Cancer Prediction Navigator</h1>
     <div class="card-container">
         <div class="card">
             <div class="form-container">
@@ -75,7 +75,6 @@
 
                     <button type="submit">Get Prediction</button>
                 </form>
-                </form>
             </div>
         </div>
     </div>
@@ -86,8 +85,7 @@
             <p id="predictionResult"></p>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>></script>
-    </script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 
 </html>
