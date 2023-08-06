@@ -3,90 +3,107 @@
 
 <head>
     <title>Prediction Navigator</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/styling/lungs.css">
+    <link rel="stylesheet" href="static/styling/navbar.css">
+    <link rel="stylesheet" href="static/styling/body.css">
 </head>
 
 <body>
-    <ul class="navbar">
-        <li class="navitem">
-            <img src="LevelAlpha.png" alt="logo" width="50" height="50" />
-        </li>
-        <li class="navitem"><a href="{{ url_for('home') }}">Diabetes Prediction</a></li>
-        <li class="navitem"><a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a></li>
-        <li class="navitem"><a href="{{ url_for('lungs') }}">Cancer Prediction</a></li>
-    </ul>
-
-    <h1>Diabetes Prediction Navigator</h1>
-    <div class="card-container">
-        <div class="card">
-            <div class="form-container">
-                <form id="prediction-form">
-                    <label for="gender-input">GENDER: Enter 1 for Male and 0 for Female</label>
-                    <input type="number" id="gender-input" min="0" max="1" required />
-
-                    <label for="age-input">AGE: Enter your Age</label>
-                    <input type="number" id="age-input" min="1" max="100" required />
-
-                    <label for="smoking-input">SMOKING: Enter 1 if you smoke or 0 if you don't smoke</label>
-                    <input type="number" id="smoking-input" min="0" max="1" required />
-
-                    <label for="yellow-finger-input">YELLOW FINGERS: Enter 1 if you have yellow fingers or 0 if you
-                        don't</label>
-                    <input type="number" id="yellow-finger-input" min="0" max="1" required />
-
-                    <label for="anxiety-input">ANXIETY: Enter 1 if you have anxiety and 0 if you don't</label>
-                    <input type="number" id="anxiety-input" min="0" max="1" required />
-
-                    <label for="peer-input">PEER PRESSURE: Enter 1 if you feel you suffer from peer pressure or 0
-                        if you don't</label>
-                    <input type="number" id="peer-input" min="0" max="1" required />
-
-                    <label for="chronic-input">CHRONIC DISEASE: Enter 1 if you suffer from a chronic disease or 0 if
-                        you don't</label>
-                    <input type="number" id="chronic-input" min="0" max="1" required />
-
-                    <label for="fatigue-input">FATIGUE: Enter 1 if you have fatigue or 0 if you don't</label>
-                    <input type="number" id="fatigue-input" min="0" max="1" required />
-
-                    <label for="allergy-input">ALLERGY: Enter 1 if you have some sort of allergy or 0 if you
-                        don't</label>
-                    <input type="number" id="allergy-input" min="0" max="1" required />
-
-                    <label for="wheezing-input">WHEEZING: Enter 1 if you wheeze or 0 if you don't</label>
-                    <input type="number" id="wheezing-input" min="0" max="1" required />
-
-                    <label for="alcohol-input">ALCOHOL CONSUMPTION: Enter 1 if you consume alcohol or 0 if you
-                        don't</label>
-                    <input type="number" id="alcohol-input" min="0" max="1" required />
-
-                    <label for="coughing-input">COUGHING: Enter 1 if you cough a lot or 0 if you don't</label>
-                    <input type="number" id="coughing-input" min="0" max="1" required />
-
-                    <label for="breath-input">SHORTNESS OF BREATH: Enter 1 if you suffer from shortness of breath or
-                        0 if you don't</label>
-                    <input type="number" id="breath-input" min="0" max="1" required />
-
-                    <label for="swallow-input">SWALLOWING DIFFICULTY: Enter 1 if you have difficulty swallowing or 0
-                        if you don't</label>
-                    <input type="number" id="swallow-input" min="0" max="1" required />
-
-                    <label for="chest-input">CHEST PAIN: Enter 1 if you have chest pain or 0 if you don't</label>
-                    <input type="number" id="chest-input" min="0" max="1" required />
-
+    {% include 'navbar.html' %}
+    <div class="dcontainer">
+        <div class="text">
+            <h1>Lung Cancer Status Prediction</h1>
+            <p><b>Lung Cancer Status Prediction:</b>
+                 DiagnosAI leverages cutting-edge AI technology to 
+                 analyze user-provided information and deliver insights 
+                 on their lung cancer risk. This early detection capability 
+                 can significantly improve the chances of successful treatment 
+                 and better outcomes.
+            </p>
+        </div>
+        <div class="card-container">
+            <form id="prediction-form">
+                <h1>Diabetes Prediction</h1>
+                <div class="dcard">
+                    <div class="input-group">
+                        <label for="gender-input">Gender</label>
+                        <input type="number" id="gender-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="age-input">Age</label>
+                        <input type="number" id="age-input" min="1" max="100" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="smoking-input">Smoker</label>
+                        <input type="number" id="smoking-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="yellow-finger-input">Yellow finger</label>
+                        <input type="number" id="yellow-finger-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="anxiety-input">Anxiety</label>
+                        <input type="number" id="anxiety-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="peer-input">Peer Pressure</label>
+                        <input type="number" id="peer-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="chronic-input">Chronic disease</label>
+                        <input type="number" id="chronic-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="fatigue-input">Fatigue</label>
+                        <input type="number" id="fatigue-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="allergy-input">Allergy</label>
+                        <input type="number" id="allergy-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="wheezing-input">Wheezing</label>
+                        <input type="number" id="wheezing-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="alcohol-input">Alcohol Consumption</label>
+                        <input type="number" id="alcohol-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="coughing-input">Coughing</label>
+                        <input type="number" id="coughing-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="breath-input">Shortness of Breath</label>
+                        <input type="number" id="breath-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="swallow-input">Swallowing difficulty</label>
+                        <input type="number" id="swallow-input" min="0" max="1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="chest-input">Chest pain</label>
+                        <input type="number" id="chest-input" min="0" max="1" required />
+                    </div>
+                    <p>Hint: Enter 1 for yes, and 0 for no. Also when entring for gender,
+                        1 is male while 0 is female
+                    </p>
+                </div>
+                <div class="submit">
                     <button type="submit">Get Prediction</button>
-                </form>
-                </form>
-            </div>
+                </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeModal">&times;</span>
+                        <h2 id="predictionResult"></h2>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Prediction Result</h2>
-            <p id="predictionResult"></p>
-        </div>
     </div>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>></script>
+    </div>
+    <script src="{{ url_for('static', filename='/javascripts/lungs.js') }}"></script>
     </script>
 </body>
 

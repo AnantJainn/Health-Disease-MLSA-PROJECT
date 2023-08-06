@@ -3,150 +3,123 @@
 
 <head>
     <title>Prediction Navigator</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/styling/heart_disease.css">
+    <link rel="stylesheet" href="static/styling/navbar.css">
 </head>
 
 <body>
-    <ul class="navbar">
-        <li class="navitem">
-            <img src="{{ url_for('static', filename='LevelAlpha.png') }}" alt="logo" width="50" height="50" />
-        </li>
-        <li class="navitem"><a href="{{ url_for('home') }}">Diabetes Prediction</a></li>
-        <li class="navitem"><a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a></li>
-        <li class="navitem"><a href="#lung_cancer">Cancer Prediction</a></li>
-    </ul>
-
-    <h1>Heart Disease Prediction Navigator</h1>
-    <div class="card-container">
-        <div class="card">
-            <div class="form-container">
-                <form id="predictionForm">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" name="age" required /><br />
-
-                    <label for="sex">Sex:</label>
-                    <select id="sex" name="sex" required>
-                        <option value="0">Female</option>
-                        <option value="1">Male</option>
-                    </select><br />
-
-                    <label for="cp">Chest Pain Type</label>
-                    <select id="cp" name="cp" required>
-                        <option value="0">Typical Angina</option>
-                        <option value="1">Atypical Angina</option>
-                        <option value="2">Non-Anginal Pain</option>
-                        <option value="3">Asymptomatic</option>
-                    </select><br />
-
-                    <label for="trestbps">Resting Blood Pressure</label>
-                    <input type="number" id="trestbps" name="trestbps" required /><br />
-
-                    <label for="chol">Cholesterol (mg/dl)</label>
-                    <input type="number" id="chol" name="chol" required /><br />
-
-                    <label for="fbs">Fasting Blood Sugar</label>
-                    <select id="fbs" name="fbs" required>
-                        <option value="0">Lower than 120 mg/dl</option>
-                        <option value="1">Greater than 120 mg/dl</option>
-                    </select><br />
-
-                    <label for="restecg">Resting ECG Results</label>
-                    <select id="restecg" name="restecg" required>
-                        <option value="0">Normal</option>
-                        <option value="1">ST-T Wave Abnormality</option>
-                        <option value="2">
-                            Probable or Definite Left Ventricular Hypertrophy
-                        </option>
-                    </select><br />
-
-                    <label for="thalach">Maximum Heart Rate Achieved</label>
-                    <input type="number" id="thalach" name="thalach" required /><br />
-
-                    <label for="exang">Exercise Induced Angina</label>
-                    <select id="exang" name="exang" required>
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select><br />
-
-                    <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest</label>
-                    <input type="number" id="oldpeak" name="oldpeak" step="0.1" required /><br />
-
-                    <label for="slope">Slope of the Peak Exercise ST Segment</label>
-                    <select id="slope" name="slope" required>
-                        <option value="0">Upsloping</option>
-                        <option value="1">Flat</option>
-                        <option value="2">Downsloping</option>
-                    </select><br />
-
-                    <label for="ca">Number of Major Vessels Colored by Fluoroscopy</label>
-                    <select id="ca" name="ca" required>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select><br />
-
-                    <label for="thal">Thalassemia</label>
-                    <select id="thal" name="thal" required>
-                        <option value="1">Normal</option>
-                        <option value="2">Fixed Defect</option>
-                        <option value="3">Reversible Defect</option>
-                    </select><br />
-
-                    <input type="submit" value="predict" />
-                </form>
-            </div>
+    {% include 'navbar.html' %}
+    <div class="dcontainer">
+        <div class="text">
+            <h1>Heart Diseases Prediction</h1>
+            <p><b>Heart Disease Prediction:</b> DiagnosAI utilizes advanced machine learning algorithms to assess
+                various health parameters and provide accurate predictions regarding the risk of heart disease. This
+                empowers users to take early preventive measures and maintain a healthy cardiovascular system.
+            </p>
+        </div>
+        <div class="card-container">
+            <form id="predictionForm">
+                <h1>Heart Disease Prediction</h1>
+                <div class="dcard">
+                    <div class="input-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="trestbps">Resting Blood Pressure</label>
+                        <input type="number" id="trestbps" name="trestbps" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="chol">Cholesterol (mg/dl)</label>
+                        <input type="number" id="chol" name="chol" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="thalach">Maximum Heart Rate Achieved</label>
+                        <input type="number" id="thalach" name="thalach" required /><br />
+                    </div>
+                    <div class="input-group">
+                        <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest</label>
+                        <input type="number" id="oldpeak" name="oldpeak" step="0.1" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="sex">Sex</label>
+                        <select id="sex" name="sex" required>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="cp">Chest Pain Type</label>
+                        <select id="cp" name="cp" required>
+                            <option value="0">Typical Angina</option>
+                            <option value="1">Atypical Angina</option>
+                            <option value="2">Non-Anginal Pain</option>
+                            <option value="3">Asymptomatic</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="exang">Exercise Induced Angina</label>
+                        <select id="exang" name="exang" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="fbs">Fasting Blood Sugar</label>
+                        <select id="fbs" name="fbs" required>
+                            <option value="0">Lower than 120 mg/dl</option>
+                            <option value="1">Greater than 120 mg/dl</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="restecg">Resting ECG Results</label>
+                        <select id="restecg" name="restecg" required>
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Wave Abnormality</option>
+                            <option value="2">
+                                Probable or Definite Left Ventricular Hypertrophy
+                            </option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="slope">Slope of the Peak Exercise ST Segment</label>
+                        <select id="slope" name="slope" required>
+                            <option value="0">Upsloping</option>
+                            <option value="1">Flat</option>
+                            <option value="2">Downsloping</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="ca">Number of Major Vessels Colored by Fluoroscopy</label>
+                        <select id="ca" name="ca" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="thal">Thalassemia</label>
+                        <select id="thal" name="thal" required>
+                            <option value="1">Normal</option>
+                            <option value="2">Fixed Defect</option>
+                            <option value="3">Reversible Defect</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Predict" />
+                </div>
+                
+            </form>
         </div>
     </div>
-    <!-- The modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Prediction Result</h2>
-            <p id="predictionResult"></p>
-        </div>
+    <div class="overlay" id="overlay"></div>
+    <div id="notification" class="notification">
+        <h3>Prediction Result</h3>
+        <span id="closeNotification" class="close">&times;</span>
+        <p id="predictionResult"></p>
     </div>
-
-    <script>
-        document.getElementById("predictionForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            var jsonData = {};
-            for (var pair of formData.entries()) {
-                jsonData[pair[0]] = pair[1];
-            }
-            fetch("/heart_disease_predict", {
-                method: "POST",
-                body: new URLSearchParams(formData), // Use URLSearchParams to encode the form data
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    var predictionResult = data.result;
-                    var modal = document.getElementById("myModal");
-                    var closeBtn = document.getElementById("closeModal");
-                    var predictionResultElement = document.getElementById("predictionResult");
-
-                    // Display the prediction result in the modal
-                    predictionResultElement.textContent = predictionResult;
-                    modal.style.display = "block";
-
-                    // Close the modal when the close button is clicked
-                    closeBtn.onclick = function () {
-                        modal.style.display = "none";
-                    };
-
-                    // Close the modal when the user clicks anywhere outside the modal content
-                    window.onclick = function (event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    };
-                })
-                .catch((error) => {
-                    console.log("Error:", error);
-                });
-        });
-
-    </script>
+    <script src="{{ url_for('static', filename='/javascripts/heart_disease.js') }}"></script>
 
 </html>
