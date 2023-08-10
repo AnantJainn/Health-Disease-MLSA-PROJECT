@@ -1,15 +1,4 @@
-body, html {
-    margin-left: 2em;
-    margin-right: 2em;
-    padding: 0;
-    /* height: 100%; */
-    /* overflow: hidden; */
-}
 
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
-    background: linear-gradient(180deg, #f6f6f6, #c0bfd2, #322b92, #06014e);
-}
 header {
     background-color: #06014e;
     color: #fff;
@@ -50,7 +39,7 @@ main {
     width: 100%;
     background-color: rgba(8, 8, 8, 0.8);
     box-sizing: border-box;
-    transition: bottom 0.8s ease-in-out;
+    transition: bottom 1s ease-in-out;
     bottom: -100%;
 }
 
@@ -116,5 +105,14 @@ main {
     cursor: pointer;
 }
 
-
+.header span a{
+    font-size: small;
+    font-weight: 300;
+    text-decoration: none;
+    position: absolute;
+    top: 20%;
+    left: 90%;
+    color: #fff;
+    opacity: 0.8;
+}
 

@@ -1,0 +1,79 @@
+body {
+    height: 100%;
+}
+
+.card-container {
+    width: 650px;
+    padding: 28px;
+    position: absolute;
+    background-color: #f6f6f6;
+    box-shadow: #06014e 0px 0px 10px 0px;
+    margin-top: 60px;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: left;
+    font-weight: 500;
+    font-size: 26px;
+    color: #06014e;
+    margin-top: 0;
+    border-bottom: 1px solid #06014e;
+    margin-bottom: 15px;
+}
+
+.dcard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.input-group label {
+    width: 100%;
+    font-weight: bold;
+    color: #06014e;
+    margin-bottom: 5px 0;
+}
+
+.submit {
+    margin: 10px 0;
+}
+
+.submit input {
+    width: 100%;
+    margin-top: 0;
+    padding: 10px;
+    display: block;
+    font-size: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #2a256f, #15105d, #06014e);
+}
+
+.submit input:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #06014e, #15105d, #2a256f);
+}
+
+.input-group input, textarea {
+    height: 30px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #06014e;
+    outline: none;
+}
+
+.input-group input:is(:focus, :valid) {
+    box-shadow: 0 0 5px #06014e;
+}

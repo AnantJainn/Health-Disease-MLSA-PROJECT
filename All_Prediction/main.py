@@ -42,6 +42,11 @@ def about():
 def blog():
     return render_template("blog.html")
 
+@main.route("/create")
+def create():
+    return render_template("create_blogpost.html")
+
+
 @main.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json()

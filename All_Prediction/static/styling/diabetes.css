@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 6em;
-    padding: 40px;
+    padding: 80px;
+    height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
     border-radius: 8px;
 }
@@ -17,8 +18,9 @@
     margin-top: 0.1em;
     margin-bottom: 0.6em;
     text-align: left;
-    margin-left: 2em;
+    margin-left: 0.5em;
     align-self: flex-start;
+    font-size: large;
 }
 
 /* Info display */
@@ -27,7 +29,7 @@
 
 .card-container {
     width: 650px;
-    padding: 28px;
+    padding: 30px;
     margin: 0 25px;
     position: absolute;
     background-color: #f6f6f6;

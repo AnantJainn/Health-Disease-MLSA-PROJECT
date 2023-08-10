@@ -1,24 +1,10 @@
-body, html {
-    margin-left: 2em;
-    margin-right: 2em;
-    padding: 0;
-    height: 130vh;
-    /* overflow: hidden; */
-}
-
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
-    background: linear-gradient(180deg, #f6f6f6, #f6f6f6, #06014e);
-}
-
-
 
 /* Info display */
 .dcontainer{
     display: flex;
     justify-content: space-between;
     margin-top: 6em;
-    padding: 40px;
+    padding: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
     border-radius: 8px;
 }
@@ -32,8 +18,9 @@ body {
     margin-top: 0.1em;
     margin-bottom: 0.6em;
     text-align: left;
-    margin-left: 2em;
+    margin-left: 0;
     align-self: flex-start;
+    font-size: large;
 }
 /* Info display */
 
