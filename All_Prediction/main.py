@@ -7,7 +7,7 @@ import numpy as np
 
 main = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "sk-" #add api key here
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
