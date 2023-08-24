@@ -1,4 +1,4 @@
-import pickle
+import pickle, openai, requests, json
 import pandas as pd
 from flask import Flask, render_template, request,jsonify
 from sklearn.linear_model import LogisticRegression
@@ -6,6 +6,8 @@ import numpy as np
 
 
 main = Flask(__name__)
+
+openai.api_key = "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"
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
@@ -158,6 +160,45 @@ def lungs_predict():
         return jsonify({'message': 'This person has a very high chance of having lung cancer. Please see a doctor!'})
     elif predictions == 0:
         return jsonify({'message': 'The probability of this person having lung cancer is very low.'})
+    
+@main.route("/get_ai_response", methods=["POST"])
+def get_ai_response():
+    user_message = request.json["user_message"]
+    URL = "https://api.openai.com/v1/chat/completions"
+
+    payload = {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {"role": "assistant", "content": f"Subject: {user_message}\n\nBody:"}
+            ],
+        "temperature" : 1.0,
+        "top_p": 1.0,
+        "n" : 1,
+        "stream": False,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {openai.api_key}"
+    }
+
+    response = requests.post(URL, headers=headers, json=payload, stream=False)
+
+    # Check if the response status code is 200 (OK)
+    if response.status_code == 200:
+        # Parse the response JSON
+        parsed_response = json.loads(response.text)
+
+        # Extract and beautify the content
+        content = parsed_response['choices'][0]['message']['content']
+        beautified_response = content.replace("\n\n", "\n")
+        return beautified_response
+    else:
+        return "An error occurred"
+        
+
 
     
 
