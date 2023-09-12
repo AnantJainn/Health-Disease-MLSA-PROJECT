@@ -2,11 +2,11 @@ body, html {
     margin-left: 2em;
     margin-right: 2em;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
+    padding-bottom: 20px;    /* height: 100%; */
+    /* overflow: hidden; */
 }
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
-    background: linear-gradient(180deg, #f6f6f6, #f6f6f6, #06014e);
+    background: linear-gradient(180deg, #f6f6f6, #f6f6f6, #f6f6f6, darkblue);
 }

@@ -6,12 +6,15 @@
     <title>Blog</title>
     <link rel="stylesheet" href="static/styling/blog.css">
     <link rel="stylesheet" href="static/styling/navbar.css">
-    <!-- <link rel="stylesheet" href="static/styling/body.css"> -->
+    <link rel="stylesheet" href="static/styling/body.css">
 </head>
 <body>
     {% include 'navbar.html' %}
     <header>
+        <div class="header">
         <h1>Blog</h1>
+        <span><a href="{{ url_for ('create') }}">create</a></span>
+        </div>
     </header>
     <main>
         <section class="blog-list">
@@ -30,7 +33,7 @@
                     <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
                 </div>
                 <div class="blog-post-image">
-                    <img src="{{ url_for('static', filename='images/R2.jpeg') }}" alt="">
+                    <img src="{{ url_for('static', filename='images/R 2.jpeg') }}" alt="">
                 </div>
             </div>
             <div class="blog-post" data-id="3">

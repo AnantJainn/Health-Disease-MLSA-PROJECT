@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <ul class="navbar">
-        <li class="navitem">
-            <a href="{{ url_for('home') }}">
-                <img src="{{ url_for('static', filename='images/LevelAlpha.png') }}" alt="logo" width="50" height="50" />
-            </a>
-        </li>
-        <li class="navitem1"><a href="{{ url_for('home') }}">Home</a></li>
-        <li class="navitem1"><a href="{{ url_for('about') }}">About</a></li>
-        <li class="navitem1">
-            <a href="#">Features</a>
-            <div class="dropdown-content">
-                <a href="{{ url_for('diabetes') }}">Diabetes Status Prediction</a>
-                <a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a>
-                <a href="{{ url_for('lungs') }}">Lung Cancer Status Prediction</a>
+    <div class="con">
+        <ul class="navbar">
+            <li class="navitem">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/LevelAlpha.png') }}" alt="logo" width="50"
+                        height="50" />
+                </a>
+            </li>
+            <li class="navitem1"><a href="{{ url_for('home') }}">Home</a></li>
+            <li class="navitem1"><a href="{{ url_for('about') }}">About</a></li>
+            <li class="navitem1">
+                <a href="#">Features</a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('diabetes') }}">Diabetes Status Prediction</a>
+                    <a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a>
+                    <a href="{{ url_for('lungs') }}">Lung Cancer Status Prediction</a>
+                </div>
+            </li>
+            <li class="navitem1"><a href="{{ url_for('blog') }}">Blog</a></li>
+        </ul>
+        <div class="menu">
+            <div class="menu-icon">
+                <div class="menu-icon-line"></div>
+                <div class="menu-icon-line"></div>
+                <div class="menu-icon-line"></div>
             </div>
-        </li>
-        <li class="navitem1"><a href="{{ url_for('blog') }}">Blog</a></li>
-    </ul>
+        </div>
+    </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".menu-icon");
+        const dropdownParent = document.querySelector(".dropdown-content");
+
+        menuIcon.addEventListener("click", () => {
+            console.log("Menu icon clicked");
+            dropdownParent.classList.toggle("show-dropdown");
+        });
+    });
+</script>
 </html>

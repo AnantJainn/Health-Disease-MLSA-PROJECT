@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 6em;
-    padding: 40px;
+    padding: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
     border-radius: 8px;
 }
@@ -19,8 +19,9 @@
     margin-top: 0.1em;
     margin-bottom: 0.6em;
     text-align: left;
-    margin-left: 1em;
+    margin-left: 0;
     align-self: flex-start;
+    font-size: large;
 }
 /* Info display */
 
@@ -34,7 +35,7 @@
     background-color: #f6f6f6;
     box-shadow: #06014e 0px 0px 10px 0px;
     left: 35%;
-    top: 15%;
+    top: 20%;
     right: 10%;
     bottom: 5%;
     border-radius: 10px;

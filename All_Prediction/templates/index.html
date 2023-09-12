@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="static/styling/home.css">
     <link rel="stylesheet" href="static/styling/navbar.css">
     <link rel="stylesheet" href="static/styling/body.css">
+    <link rel="stylesheet" href="static/styling/chat.css">
 </head>
 
 <body>
     {% include 'navbar.html' %}
     <div class="home1">
-        <h2>Health Disease MLSA Project</h2>
-        <p>The Health Disease MLSA
-            Project aims to revolutionize healthcare by harnessing the power of
+        <h2>DiagnosAI</h2>
+        <p>We aim to revolutionize healthcare by harnessing the power of
             advanced data analysis and predictive modeling. In this ambitious project,
             cutting-edge machine learning algorithms and statistical techniques are
             employed to analyze vast amounts of medical data, ranging from patient
@@ -24,9 +24,11 @@
             prognosis, and personalized treatment recommendations. This innovative
             initiative holds the potential to significantly improve patient outcomes
             and contribute to a more efficient and data-driven healthcare system.</p>
-        <h3>Our project is divided into 3 parts</h3>
-            <p>The key objectives of the Health Disease
-            MLSA Project are multi-faceted. Firstly, it seeks to develop accurate predictive
+        <div class="home1-image">
+            <img src="{{ url_for('static', filename='images/hh.jpg') }}" alt="">
+        </div>
+        <h2>Our project is divided into 3 parts</h2>
+        <p>DiagnosAI is multi-faceted. Firstly, it seeks to develop accurate predictive
             models for various health conditions, including heart disease, cancer, diabetes,
             and more. These models will not only aid in early detection but also assist in
             risk assessment and prevention strategies. Secondly, the project aims to optimize
@@ -36,6 +38,34 @@
             environmental factors that influence disease progression,
             empowering patients with valuable insights for proactive health management.</p>
     </div>
+    <div class="chatbot">
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h4>DiagnosAI Assistant</h4>
+            </div>
+            <div class="close">
+                <button class="chatbot-close">X</button>
+            </div>
+            <div class="chatbot-body">
+                <div class="chatbot-message">
+                    <img class="img" src="{{ url_for('static', filename='images/Beauty.png') }}" alt="">
+                    <div class="chatbot-message-text">
+                        <p>Hi, I am DiagnosAI Assistant. I am here to help you with your health related questions.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="chatbot-footer">
+                    <div class="input">
+                        <input type="text" id="user-input" placeholder="Type your message here...">
+                    </div>
+                    <button class="chatbot-send">Send</button>
+            </div>
+        </div>
+        <button class="chatbot-open">Chat</button>
+    </div>
 </body>
+
+<script src="{{ url_for('static', filename='/javascripts/chat.js') }}"></script>
 
 </html>
