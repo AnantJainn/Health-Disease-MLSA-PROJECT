@@ -1,0 +1,165 @@
+
+
+/* About display */
+.about1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2.5em;
+    padding: 40px;
+    /* height: 40%; */
+    /* background-color: #06014eed; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    border-radius: 8px;
+
+}
+.about1 h1{
+    color: #06014e;
+    margin-top: 0.1em;
+    /* margin-bottom: 0.6em; */
+    font-size: 2.5em;
+    text-align: center;
+}
+.about1 h2{
+    color: #06014e;
+    margin-top: 0.7em;
+    margin-bottom: 0.6em;
+    font-size: 2em;
+    text-align: center;
+}
+.about1 p{
+    color: #06014e;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    text-align: justify;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+/* Team display */
+
+.container {
+    display: flex;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.card {
+    flex: 0 0 calc(33.33% - 20px);
+    height: 180px;
+    width: 250px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgb(19, 27, 48);
+    border-radius: 8px;
+    text-align: start;
+    background-color: #313030a2;
+    transition: all 0.3s ease; 
+}
+
+.card h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: start;
+    text-shadow: #06014e 1px 1px 1px;
+    opacity: 0;
+}
+
+.card p {
+    color: white;
+    line-height: 1.5;
+    font-size: 1em;
+    text-align: start;
+    margin-left: 0;
+    text-shadow: #06014e 1px 1px 1px;
+    opacity: 0;
+}
+
+.card:hover h2, .card:hover p {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.border {
+    /* border: 1px solid #06014e; */
+    border-radius: 8px;
+    padding: 10px;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    height: 160px;
+    background: transparent;
+    transition: border 0.3s;
+}
+
+.border:hover {
+    border: 1px solid white;
+}
+.card0 {
+    background: url('/static/images/Beauty.png');
+    background-size: cover;
+    background-position: left center no-repeat;
+}
+
+.card0:hover {
+    background: url('/static/images/Beauty.png');
+    background-size: 400px 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.card1 {
+    background: url('/static/images/R 2.jpeg');
+    background-size: cover;
+    background-position: left center no-repeat;
+}
+
+.card1:hover {
+    background: url('/static/images/R 2.jpeg');
+    background-size: 400px 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.card2 {
+    background: url('/static/images/R.jpeg');
+    background-size: cover;
+    background-position: left center no-repeat;
+}
+
+.card2:hover {
+    background: url('/static/images/R.jpeg');
+    background-size: 400px 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.card3 {
+    background: url('/static/images/R5.webp');
+    background-size: cover;
+    background-position: left center no-repeat;
+}
+
+.card3:hover {
+    background: url('/static/images/R5.webp');
+    background-size: 400px 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+/* Team display */
+/* About display */

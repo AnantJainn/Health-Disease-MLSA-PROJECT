@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="static/styling/blog.css">
+    <link rel="stylesheet" href="static/styling/navbar.css">
+    <link rel="stylesheet" href="static/styling/body.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <header>
+        <div class="header">
+        <h1>Blog</h1>
+        <span><a href="{{ url_for ('create') }}">create</a></span>
+        </div>
+    </header>
+    <main>
+        <section class="blog-list">
+            <div class="blog-post" data-id="1">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R.jpeg') }}" alt="">
+                </div>
+            </div>
+            <div class="blog-post" data-id="2">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R 2.jpeg') }}" alt="">
+                </div>
+            </div>
+            <div class="blog-post" data-id="3">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R3.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="blog-post" data-id="4">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R 4.jpeg') }}" alt="">
+                </div>
+            </div>
+            <div class="blog-post" data-id="1">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R5.webp') }}" alt="">
+                </div>
+            </div>
+            <div class="blog-post" data-id="6">
+                <div class="blog-post-info">
+                    <h2>AI in Medicine</h2>
+                    <p><i>AI is revolutionizing how surgeons performs surgeries. <u>Read More</i></u></p>
+                </div>
+                <div class="blog-post-image">
+                    <img src="{{ url_for('static', filename='images/R6.jpeg') }}" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/javascripts/blog.js') }}"></script>
+</body>
+</html>

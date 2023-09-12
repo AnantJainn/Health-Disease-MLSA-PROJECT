@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prediction Navigator</title>
+    <link rel="stylesheet" href="static/styling/diabetes.css">
+    <link rel="stylesheet" href="static/styling/navbar.css">
+    <link rel="stylesheet" href="static/styling/body.css">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="dcontainer">
+        <div class="text">
+            <h1>Diabetes Prediction</h1>
+            <p><b>Diabetes Prediction:</b> With DiagnosAI, users can input
+                relevant data to receive personalized predictions regarding their
+                diabetes risk. By identifying potential risks early on, individuals
+                can make lifestyle changes and seek medical intervention to manage
+                or prevent diabetes effectively.
+
+            </p>
+        </div>
+        <div class="card-container">
+            <form id="predictionForm">
+                <h1>Diabetes Prediction</h1>
+                <div class="dcard">
+                    <div class="input-group">
+                        <label for="inputData_0">Pregnancy</label>
+                        <input type="number" id="inputData_0" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_1">Glucose</label>
+                        <input type="number" id="inputData_1" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_2">Blood Pressure</label>
+                        <input type="number" id="inputData_2" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_3">Skin Thickness</label>
+                        <input type="number" id="inputData_3" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_4">Insulin</label>
+                        <input type="number" id="inputData_4" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_5">BMI</label>
+                        <input type="number" id="inputData_5" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_6">Diabetes Pedigree Function</label>
+                        <input type="number" id="inputData_6" name="inputData[]" step="any" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="inputData_7">Age</label>
+                        <input type="number" id="inputData_7" name="inputData[]" step="any" required />
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Predict" />
+                </div>
+                         
+            </form>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div id="notification" class="notification">
+        <h3>Prediction Result</h3>
+        <span id="closeNotification" class="close">&times;</span>
+        <p id="predictionResult"></p>
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='/javascripts/diabetes.js') }}"></script>
+</body>
+</html>

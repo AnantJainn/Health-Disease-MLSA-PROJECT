@@ -1,0 +1,147 @@
+/* Nav Bar */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navitem {
+    margin-right: auto;
+}
+
+.navitem1 {
+    margin-left: 60px;
+}
+
+.navitem1 a {
+    text-decoration: none;
+    color: #06014e;
+    padding: 5px;
+}
+
+.navitem1 a:hover {
+    color: #06014e;
+}
+
+.navitem1:after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: #06014e;
+    opacity: 0;
+    transition: all 200ms linear;
+}
+
+.navitem1:hover:after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.navitem1.active:hover:after {
+    opacity: 0;
+}
+
+.navitem1 {
+    position: relative;
+    transition: all 200ms linear;
+}
+
+ /* Dropdown styles */
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.343);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.navitem1:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #06014e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+}
+
+.dropdown-content a:hover {
+    background-color: #06014e59;
+}
+
+/* Nav Bar */
+
+/* responsiveness */
+
+/* responsiveness */
+@media screen and (max-width: 768px) {
+
+    .con {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navitem1 {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon-line {
+        width: 25px;
+        height: 3px;
+        background-color: #06014e;
+        margin: 5px;
+    }
+    
+    .menu-icon .navitem1 {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #06014e;
+    }
+    .menu-icon .navitem1:last-child {
+        border-bottom: none;
+    }
+
+    /* Display dropdown content properly */
+    .dropdown-content {
+        position: static;
+        display: none; /* Hide dropdown by default */
+        background-color: #f9f9f9;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.343);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .navitem1.show-dropdown .dropdown-content {
+        display: block; /* Show dropdown when the class is added */
+    }
+
+    .dropdown-content a {
+        color: #06014e;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 1em;
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #06014e59;
+    }
+}

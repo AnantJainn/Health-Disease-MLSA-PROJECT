@@ -1,0 +1,119 @@
+/* Add your styling here */
+.chatbot {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0;
+}
+
+.chatbot-container {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 400px;
+    background-color: #fff;
+}
+
+.chatbot-header {
+    background-color: #06014e;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.chatbot-body {
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.chatbot-message {
+    display: flex;
+    justify-content: flex; 
+    align-items: flex-start; 
+    margin-bottom: 10px;
+    color: #06014e;
+    font-size: 0.9em;
+    border-radius: 8px;
+    padding: 8px;
+    max-width: 80%;
+}
+
+img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px; 
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.user .chatbot-message-text {
+    background-color: #06014e;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    max-width: 70%;
+}
+
+.ai .chatbot-message-text {
+    background-color: #f0f0f0;
+    color: #06014e;
+    border-radius: 8px;
+    padding: 8px;
+    max-width: 80%;
+}
+
+.ai-picture{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px; 
+    border-radius: 50%;
+}
+
+.chatbot-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #06014e;
+    border-radius: 0 0 8px 8px;
+}
+
+.chatbot-footer input {
+    flex: 1;
+    border: none;
+    width: 300px;
+    outline: none;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.chatbot-footer button {
+    background-color: #06014e;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 10px; /* Adjust spacing */
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.show-dropdown .dropdown-content {
+    display: block;
+}

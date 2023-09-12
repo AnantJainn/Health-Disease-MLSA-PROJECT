@@ -1,0 +1,172 @@
+
+/* Info display */
+.dcontainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6em;
+    padding: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    border-radius: 8px;
+}
+
+.text {
+    width: 35%;
+}
+
+.text {
+    color: #06014e;
+    margin-top: 0.1em;
+    margin-bottom: 0.6em;
+    text-align: left;
+    margin-left: 0;
+    align-self: flex-start;
+    font-size: large;
+}
+/* Info display */
+
+/* Style for the form */
+
+.card-container {
+    width: 650px;
+    padding: 28px;
+    margin: 0 25px;
+    position: absolute;
+    background-color: #f6f6f6;
+    box-shadow: #06014e 0px 0px 10px 0px;
+    left: 40%;
+    top: 15%;
+    right: 10%;
+    /* bottom: 5%; */
+    border-radius: 10px;
+}
+
+.card-container h1 {
+    text-align: left;
+    font-weight: 500;
+    font-size: 26px;
+    color: #06014e;
+    margin-top: 0;
+    border-bottom: 1px solid #06014e;
+    margin-bottom: 15px;
+}
+
+.dcard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 10px;
+}
+
+.input-group:nth-child(2n){
+    justify-content: end;
+}
+
+.input-group label {
+    width: 95%;
+    font-weight: bold;
+    color: #06014e;
+    margin-bottom: 5px 0;
+}
+
+.input-group input{
+    height: 30px;
+    width: 88%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #06014e;
+    outline: none;
+}
+
+.input-group input:is(:focus, :valid) {
+    box-shadow: 0 0 5px #06014e;
+}
+
+.input-group select{
+    height: 30px;
+    width: 96%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #06014e;
+    outline: none;
+}
+
+.input-group select:is(:focus, :valid) {
+    box-shadow: 0 0 5px #06014e;
+}
+
+.submit {
+    margin: 10px 0;
+}
+
+.submit input {
+    width: 100%;
+    margin-top: 0;
+    padding: 10px;
+    display: block;
+    font-size: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #2a256f, #15105d, #06014e);
+}
+
+.submit input:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #06014e, #15105d, #2a256f);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.467); /* Semi-transparent black color for the overlay */
+    z-index: 9998; /* Make sure the overlay is just behind the notification */
+    display: none;
+  }
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #06014e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9999; /* Make sure the notification is on top of the overlay */
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    border-radius: 10px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .notification h3 {
+    margin-top: 0;
+    align-self: center;
+    text-align: center;
+  }
+  
+  .notification p {
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+  

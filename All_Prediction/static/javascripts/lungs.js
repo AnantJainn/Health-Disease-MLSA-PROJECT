@@ -1,3 +1,22 @@
+function showNotification() {
+  var notification = document.getElementById("notification");
+  var overlay = document.getElementById("overlay");
+
+  // Show the notification and overlay
+  notification.style.display = "block";
+  overlay.style.display = "block";
+}
+
+function closeNotification() {
+  var notification = document.getElementById("notification");
+  var overlay = document.getElementById("overlay");
+
+  // Hide the notification and overlay
+  notification.style.display = "none";
+  overlay.style.display = "none";
+}
+
+
 const predictionForm = document.getElementById("prediction-form");
 const resultDiv = document.getElementById("predictionResult");;
 
@@ -38,7 +57,7 @@ predictionForm.addEventListener("submit", function (event) {
     CHEST_PAIN: chest,
   };
 
-  fetch("/predict", {
+  fetch("/lungs_predict", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -49,31 +68,11 @@ predictionForm.addEventListener("submit", function (event) {
     .then((result) => {
       const message = result.message;
       resultDiv.textContent = message;
-      showModal();
+
+      showNotification();
     });
 });
 
-// Function to show the prediction result modal
-function showModal() {
-  const modal = document.getElementById("myModal");
-  const span = document.getElementById("closeModal");
-
- 
-  const predictionResult = document.getElementById("predictionResult");
-  predictionResult.textContent = resultDiv.textContent;
-
-
-  modal.style.display = "block";
-
-
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
-
- 
-  window.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  };
-}
+document.getElementById("closeNotification").addEventListener("click", function () {
+  closeNotification();
+});

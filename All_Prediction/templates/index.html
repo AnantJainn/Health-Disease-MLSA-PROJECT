@@ -1,101 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Prediction Navigator</title>
-    <link rel="stylesheet" href="static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="static/styling/home.css">
+    <link rel="stylesheet" href="static/styling/navbar.css">
+    <link rel="stylesheet" href="static/styling/body.css">
+    <link rel="stylesheet" href="static/styling/chat.css">
 </head>
 
 <body>
-    <ul class="navbar">
-        <li class="navitem">
-            <img src="{{ url_for('static', filename='LevelAlpha.png') }}" alt="logo" width="50" height="50" />
-        </li>
-        <li class="navitem"><a href="#">Diabetes Prediction</a></li>
-        <li class="navitem"><a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a></li>
-        <li class="navitem"><a href="{{ url_for('lungs') }}">Cancer Prediction</a></li>
-    </ul>
+    {% include 'navbar.html' %}
+    <div class="home1">
+        <h2>DiagnosAI</h2>
+        <p>We aim to revolutionize healthcare by harnessing the power of
+            advanced data analysis and predictive modeling. In this ambitious project,
+            cutting-edge machine learning algorithms and statistical techniques are
+            employed to analyze vast amounts of medical data, ranging from patient
+            records to diagnostic imaging. By uncovering hidden patterns and
+            correlations in the data, the project seeks to enhance disease detection,
+            prognosis, and personalized treatment recommendations. This innovative
+            initiative holds the potential to significantly improve patient outcomes
+            and contribute to a more efficient and data-driven healthcare system.</p>
+        <div class="home1-image">
+            <img src="{{ url_for('static', filename='images/hh.jpg') }}" alt="">
+        </div>
+        <h2>Our project is divided into 3 parts</h2>
+        <p>DiagnosAI is multi-faceted. Firstly, it seeks to develop accurate predictive
+            models for various health conditions, including heart disease, cancer, diabetes,
+            and more. These models will not only aid in early detection but also assist in
+            risk assessment and prevention strategies. Secondly, the project aims to optimize
+            treatment plans by analyzing patient responses to different therapies and medications.
+            By tailoring treatments to individual needs, healthcare providers can deliver more effective and
+            patient-centric care. Furthermore, the approach used enables the identification of lifestyle and
+            environmental factors that influence disease progression,
+            empowering patients with valuable insights for proactive health management.</p>
+    </div>
+    <div class="chatbot">
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h4>DiagnosAI Assistant</h4>
+            </div>
+            <div class="close">
+                <button class="chatbot-close">X</button>
+            </div>
+            <div class="chatbot-body">
+                <div class="chatbot-message">
+                    <img class="img" src="{{ url_for('static', filename='images/Beauty.png') }}" alt="">
+                    <div class="chatbot-message-text">
+                        <p>Hi, I am DiagnosAI Assistant. I am here to help you with your health related questions.</p>
+                    </div>
+                </div>
 
-    <h1>Diabetes Prediction Navigator</h1>
-    <div class="card-container">
-        <div class="card">
-            <div class="form-container">
-                <form id="predictionForm">
-                    <label for="inputData_0">Pregnancy</label>
-                    <input type="number" id="inputData_0" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_1">Glucose</label>
-                    <input type="number" id="inputData_1" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_2">Blood Pressure</label>
-                    <input type="number" id="inputData_2" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_3">Skin Thickness</label>
-                    <input type="number" id="inputData_3" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_4">Insulin</label>
-                    <input type="number" id="inputData_4" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_5">BMI</label>
-                    <input type="number" id="inputData_5" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_6">Diabetes Pedigree Function</label>
-                    <input type="number" id="inputData_6" name="inputData[]" step="any" required /><br />
-                    <label for="inputData_7">Age</label>
-                    <input type="number" id="inputData_7" name="inputData[]" step="any" required /><br />
-                    <br />
-                    <input type="submit" value="Predict" />
-                </form>
+            </div>
+            <div class="chatbot-footer">
+                    <div class="input">
+                        <input type="text" id="user-input" placeholder="Type your message here...">
+                    </div>
+                    <button class="chatbot-send">Send</button>
             </div>
         </div>
+        <button class="chatbot-open">Chat</button>
     </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Prediction Result</h2>
-            <p id="predictionResult"></p>
-        </div>
-    </div>
-    <script>
-        document.getElementById("predictionForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            var inputArray = [];
-            for (var pair of formData.entries()) {
-                inputArray.push(parseFloat(pair[1]));
-            }
-            var jsonData = {
-                input_data: inputArray,
-            };
-            fetch("/diabetes_predict", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(jsonData),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    var predictionResult = data.result;
-                    var modal = document.getElementById("myModal");
-                    var closeBtn = document.getElementById("closeModal");
-                    var predictionResultElement = document.getElementById("predictionResult");
-
-                    // Display the prediction result in the modal
-                    predictionResultElement.textContent = predictionResult;
-                    modal.style.display = "block";
-
-                    // Close the modal when the close button is clicked
-                    closeBtn.onclick = function () {
-                        modal.style.display = "none";
-                    };
-
-                    // Close the modal when the user clicks anywhere outside the modal content
-                    window.onclick = function (event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    };
-                })
-                .catch((error) => {
-                    console.log("Error:", error);
-                });
-        });
-    </script>
 </body>
+
+<script src="{{ url_for('static', filename='/javascripts/chat.js') }}"></script>
 
 </html>
