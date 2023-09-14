@@ -18,7 +18,7 @@ function closeNotification() {
 
 
 const predictionForm = document.getElementById("prediction-form");
-const resultDiv = document.getElementById("result-div");
+const resultDiv = document.getElementById("predictionResult");;
 
 predictionForm.addEventListener("submit", function (event) {
   event.preventDefault();
