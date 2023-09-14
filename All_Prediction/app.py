@@ -54,19 +54,19 @@ def blog():
     return render_template("blog.html")
 
 
-@app.route("/create")
-def create():
-    return render_template("create_blogpost.html")
-
-
 @app.route("/list")
 def list():
     return render_template("list.html")
 
 
+@app.route("/create")
+def create():
+    return render_template("create_blogpost.html")
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_japp
+    data = request.get_json()
 
     input_data = np.array(data["input_data"])
 
@@ -91,9 +91,7 @@ def predict():
     # Diabetes Prediction
 
 
-app.route("/heart_disease_predict", methods=["POST"])
-
-
+@app.route("/heart_disease_predict", methods=["POST"])
 def predict2():
     # Get the input values from the form
     age = int(request.form["age"])
@@ -254,5 +252,5 @@ def get_ai_response():
         return "An error occurred"
 
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     app.run(debug=True)
