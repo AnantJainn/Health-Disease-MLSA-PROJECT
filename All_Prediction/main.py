@@ -8,7 +8,7 @@ import joblib
 
 main = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "sk-"
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
