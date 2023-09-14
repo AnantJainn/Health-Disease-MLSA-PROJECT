@@ -12,8 +12,9 @@ from sklearn.linear_model import LogisticRegression
 app = Flask(__name__)
 openai.api_key = config("OPENAPIKEY")
 # openai.api_key = (
-#     "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"  # add api key here
+#     "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"  # add api key here
 # )
+
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
