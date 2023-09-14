@@ -61,7 +61,7 @@ def create():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_japp
+    data = request.get_json()
 
     input_data = np.array(data["input_data"])
 
