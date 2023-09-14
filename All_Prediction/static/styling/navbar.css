@@ -2,23 +2,24 @@
 .navbar {
   list-style-type: none;
   /* margin: 0; */
-  margin-left: 500px;
-
+  /* margin-left: 0px; */
+  backdrop-filter: blur(5px);
   padding: 15px;
   display: flex;
+  width: 100%;
   align-items: justify;
   /* background: #06014e; */
   border-radius: 10px; /* Add border radius */
   position: fixed; /* Make the navbar fixed */
   top: 0; /* Stick it to the top */
   left: 0;
-  right: 0;
+  /* right: 0; */
   z-index: 100; /* Ensure it's above other content */
   color: rgb(11, 10, 10);
 }
 
 .navitem {
-  margin-right: auto;
+  /* margin-right: auto; */
   /* margin-left: 20px; */
 }
 
