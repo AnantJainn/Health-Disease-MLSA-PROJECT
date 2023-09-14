@@ -1,5 +1,5 @@
 # Health-Disease-MLSA-PROJECT
-###Features
+### Features
 * The Health Analysis Application is a cutting-edge digital tool designed to empower individuals with insights into their health status. The application leverages advanced health prediction models to assess users' health parameters and provide valuable information about their overall well-being. Through an intuitive user interface, users can input their health data, and the application will analyze this information to determine whether they are in good health or if further medical consultation is recommended.
 * Upon entering their health data, users receive an immediate analysis of their health status. The application processes the data through the appropriate prediction models and provides an easily understandable assessment.
 * Our Interactive Chatbot is the bridge between patients and the Disease Prediction System. It provides users with a conversational interface, making it easy for them to input symptoms, seek medical advice, and receive instant responses.
