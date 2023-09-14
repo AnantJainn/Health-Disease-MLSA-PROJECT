@@ -6,12 +6,13 @@ import numpy as np
 import openai
 import pandas as pd
 import requests
+from decouple import config  # Import the config function
 from flask import Flask, jsonify, render_template, request
 from sklearn.linear_model import LogisticRegression
 
 main = Flask(__name__)
 
-openai.api_key = "sk-"  # add api key here
+openai.api_key = config("OPENAPIKEY")
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
