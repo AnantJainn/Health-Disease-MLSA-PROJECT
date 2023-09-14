@@ -1,13 +1,17 @@
-import pickle, openai, requests, json
-import pandas as pd
-from flask import Flask, render_template, request, jsonify
-from sklearn.linear_model import LogisticRegression
-import numpy as np
+import json
+import pickle
+
 import joblib
+import numpy as np
+import openai
+import pandas as pd
+import requests
+from flask import Flask, jsonify, render_template, request
+from sklearn.linear_model import LogisticRegression
 
 main = Flask(__name__)
 
-openai.api_key = "sk-" #add api key here
+openai.api_key = "sk-"  # add api key here
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
@@ -16,37 +20,49 @@ with open("model.pkl", "rb") as file:
 with open("diabetes_model.pkl", "rb") as f:
     diabetes_model = pickle.load(f)
 
-cancer_model = joblib.load('lung_cancer_predictor_model.pkl')
+cancer_model = joblib.load("lung_cancer_predictor_model.pkl")
+
 
 @main.route("/")
 def home():
     return render_template("index.html")
+
 
 # Route for Heart Disease Prediction page
 @main.route("/heart_disease")
 def heart_disease():
     return render_template("heart_disease.html")
 
+
 # Route for Lungs Cancer Prediction page
 @main.route("/lungs")
 def lungs():
     return render_template("lungs.html")
 
+
 @main.route("/diabetes")
 def diabetes():
     return render_template("diabetes.html")
+
 
 @main.route("/about")
 def about():
     return render_template("about.html")
 
+
 @main.route("/blog")
 def blog():
     return render_template("blog.html")
 
+
 @main.route("/create")
 def create():
     return render_template("create_blogpost.html")
+
+
+@main.route("/list")
+def list():
+    return render_template("list.html")
 
 
 @main.route("/predict", methods=["POST"])
@@ -71,22 +87,44 @@ def predict():
     chest_pain = int(data["CHEST_PAIN"])
 
     # Prepare the input data as a numpy array
-    features = np.array([
-        gender, age, smoking, yellow_fingers, anxiety, peer_pressure, chronic_disease,
-        fatigue, allergy, wheezing, alcohol_consumption, coughing, shortness_of_breath,
-        swallowing_difficulty, chest_pain
-    ])
+    features = np.array(
+        [
+            gender,
+            age,
+            smoking,
+            yellow_fingers,
+            anxiety,
+            peer_pressure,
+            chronic_disease,
+            fatigue,
+            allergy,
+            wheezing,
+            alcohol_consumption,
+            coughing,
+            shortness_of_breath,
+            swallowing_difficulty,
+            chest_pain,
+        ]
+    )
 
     # Reshape the input data to be a 2D array
     features = features.reshape(1, -1)
 
-
     # Prepare the response based on the prediction
     predictions = cancer_model.predict(features)
     if predictions == 1:
-        return jsonify({'message': 'This person has a very high chance of having lung cancer. Please see a doctor!'})
+        return jsonify(
+            {
+                "message": "This person has a very high chance of having lung cancer. Please see a doctor!"
+            }
+        )
     elif predictions == 0:
-        return jsonify({'message': 'The probability of this person having lung cancer is very low.'})
+        return jsonify(
+            {
+                "message": "The probability of this person having lung cancer is very low."
+            }
+        )
+
 
 # Route for Heart Disease Prediction page
 @main.route("/heart_disease_predict", methods=["POST"])
@@ -154,34 +192,64 @@ def predict2():
     # Return the result to the frontend
     return jsonify({"result": result})
 
-@main.route('/lungs_predict', methods=['POST'])
+
+@main.route("/lungs_predict", methods=["POST"])
 def lungs_predict():
     data = request.get_json()
 
-    gender = int(data['GENDER'])
-    age = int(data['AGE'])
-    smoking = int(data['SMOKING'])
-    yellow_fingers = int(data['YELLOW_FINGERS'])
-    anxiety = int(data['ANXIETY'])
-    peer_pressure = int(data['PEER_PRESSURE'])
-    chronic_disease = int(data['CHRONIC_DISEASE'])
-    fatigue = int(data['FATIGUE'])
-    allergy = int(data['ALLERGY'])
-    wheezing = int(data['WHEEZING'])
-    alcohol_consuming = int(data['ALCOHOL_CONSUMPTION'])
-    coughing = int(data['COUGHING'])
-    shortness_of_breath = int(data['SHORTNESS_OF_BREATH'])
-    swallowing_difficulty = int(data['SWALLOWING_DIFFICULTY'])
-    chest_pain = int(data['CHEST_PAIN'])
+    gender = int(data["GENDER"])
+    age = int(data["AGE"])
+    smoking = int(data["SMOKING"])
+    yellow_fingers = int(data["YELLOW_FINGERS"])
+    anxiety = int(data["ANXIETY"])
+    peer_pressure = int(data["PEER_PRESSURE"])
+    chronic_disease = int(data["CHRONIC_DISEASE"])
+    fatigue = int(data["FATIGUE"])
+    allergy = int(data["ALLERGY"])
+    wheezing = int(data["WHEEZING"])
+    alcohol_consuming = int(data["ALCOHOL_CONSUMPTION"])
+    coughing = int(data["COUGHING"])
+    shortness_of_breath = int(data["SHORTNESS_OF_BREATH"])
+    swallowing_difficulty = int(data["SWALLOWING_DIFFICULTY"])
+    chest_pain = int(data["CHEST_PAIN"])
 
-    features = np.array([[gender, age, smoking, yellow_fingers, anxiety, peer_pressure, chronic_disease, fatigue, allergy, wheezing, alcohol_consuming, coughing, shortness_of_breath, swallowing_difficulty, chest_pain]])
+    features = np.array(
+        [
+            [
+                gender,
+                age,
+                smoking,
+                yellow_fingers,
+                anxiety,
+                peer_pressure,
+                chronic_disease,
+                fatigue,
+                allergy,
+                wheezing,
+                alcohol_consuming,
+                coughing,
+                shortness_of_breath,
+                swallowing_difficulty,
+                chest_pain,
+            ]
+        ]
+    )
 
     predictions = cancer_model.predict(features)
     if predictions == 1:
-        return jsonify({'message': 'This person has a very high chance of having lung cancer. Please see a doctor!'})
+        return jsonify(
+            {
+                "message": "This person has a very high chance of having lung cancer. Please see a doctor!"
+            }
+        )
     elif predictions == 0:
-        return jsonify({'message': 'The probability of this person having lung cancer is very low.'})
-    
+        return jsonify(
+            {
+                "message": "The probability of this person having lung cancer is very low."
+            }
+        )
+
+
 @main.route("/get_ai_response", methods=["POST"])
 def get_ai_response():
     user_message = request.json["user_message"]
@@ -191,10 +259,10 @@ def get_ai_response():
         "model": "gpt-3.5-turbo",
         "messages": [
             {"role": "assistant", "content": f"Subject: {user_message}\n\nBody:"}
-            ],
-        "temperature" : 1.0,
+        ],
+        "temperature": 1.0,
         "top_p": 1.0,
-        "n" : 1,
+        "n": 1,
         "stream": False,
         "presence_penalty": 0,
         "frequency_penalty": 0,
@@ -202,7 +270,7 @@ def get_ai_response():
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {openai.api_key}"
+        "Authorization": f"Bearer {openai.api_key}",
     }
 
     response = requests.post(URL, headers=headers, json=payload, stream=False)
@@ -213,21 +281,16 @@ def get_ai_response():
         parsed_response = json.loads(response.text)
 
         # Extract and beautify the content
-        content = parsed_response['choices'][0]['message']['content']
+        content = parsed_response["choices"][0]["message"]["content"]
         beautified_response = content.replace("\n\n", "\n")
         return beautified_response
     else:
         return "An error occurred"
-        
-
-
-    
 
 
 # # Route for Diabetes Prediction page
 @main.route("/diabetes_predict", methods=["POST"])
 def predict_diabetes():
-
     data = request.get_json()
     # Get the input values from the form
     pregnancies = int(data["input_data"][0])
@@ -238,7 +301,6 @@ def predict_diabetes():
     bmi = float(data["input_data"][5])
     diabetes_pedigree_function = float(data["input_data"][6])
     age = int(data["input_data"][7])
-
 
     # Create a DataFrame with the input values
     input_data = pd.DataFrame(
@@ -277,6 +339,7 @@ def predict_diabetes():
 
     # Return the result to the frontend
     return jsonify({"result": result})
+
 
 if __name__ == "__main__":
     main.run(debug=True)

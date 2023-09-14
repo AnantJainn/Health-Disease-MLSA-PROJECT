@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Doctors</title>
+    <link rel="stylesheet" href="static/styling/list.css" />
+    <link rel="stylesheet" href="static/styling/navbar.css" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <main>
+      <header>
+        <h1>List of Doctors</h1>
+      </header>
+      <section class="doctor-category" id="heart-experts">
+        <h2>Heart Experts</h2>
+        <div class="doctor-card">
+          <h3>Dr. John Smith</h3>
+          <p>Contact: +1234567890</p>
+          <p>Location: Cardiology Clinic, City</p>
+          <p>Experience: 15 years</p>
+        </div>
+        <!-- Add more heart experts here -->
+      </section>
+
+      <section class="doctor-category" id="cancer-specialists">
+        <h2>Cancer Specialists</h2>
+        <div class="doctor-card">
+          <h3>Dr. Jane Doe</h3>
+          <p>Contact: +9876543210</p>
+          <p>Location: Oncology Center, Town</p>
+          <p>Experience: 20 years</p>
+        </div>
+        <!-- Add more cancer specialists here -->
+      </section>
+
+      <section class="doctor-category" id="skin-specialists">
+        <h2>Skin Specialists</h2>
+        <div class="doctor-card">
+          <h3>Dr. Emily Brown</h3>
+          <p>Contact: +5678901234</p>
+          <p>Location: Dermatology Clinic, Village</p>
+          <p>Experience: 10 years</p>
+        </div>
+        <!-- Add more skin specialists here -->
+      </section>
+
+      <section class="doctor-category" id="diabetes-experts">
+        <h2>Diabetes Experts</h2>
+        <div class="doctor-card">
+          <h3>Dr. David Johnson</h3>
+          <p>Contact: +1112223333</p>
+          <p>Location: Endocrinology Center, Suburb</p>
+          <p>Experience: 12 years</p>
+        </div>
+        <!-- Add more diabetes experts here -->
+      </section>
+    </main>
+  </body>
+</html>

@@ -59,6 +59,11 @@ def create():
     return render_template("create_blogpost.html")
 
 
+@app.route("/list")
+def list():
+    return render_template("list.html")
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_japp
