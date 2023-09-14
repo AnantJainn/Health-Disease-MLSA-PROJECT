@@ -4,18 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="static/styling/navbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>NavBar</title>
 </head>
 
 <body>
     <div class="con">
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/LevelAlpha.png') }}" alt="logo"/>
+    </a>
+
+    <input type="checkbox" id="check">
+    <labels for="check" class="icon">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-x' id="close-icon"></i>
+    </labels>
         <ul class="navbar">
-            <li class="navitem">
-                <a href="{{ url_for('home') }}">
-                    <img src="{{ url_for('static', filename='images/LevelAlpha.png') }}" alt="logo" width="50"
-                        height="50" />
-                </a>
-            </li>
             <li class="navitem1"><a href="{{ url_for('home') }}">Home</a></li>
             <li class="navitem1"><a href="{{ url_for('about') }}">About</a></li>
             <li class="navitem1">
@@ -28,24 +33,19 @@
             </li>
             <li class="navitem1"><a href="{{ url_for('blog') }}">Blog</a></li>
         </ul>
-        <div class="menu">
-            <div class="menu-icon">
-                <div class="menu-icon-line"></div>
-                <div class="menu-icon-line"></div>
-                <div class="menu-icon-line"></div>
-            </div>
-        </div>
     </div>
 </body>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const menuIcon = document.querySelector(".menu-icon");
-        const dropdownParent = document.querySelector(".dropdown-content");
+        const menuIcon = document.getElementById("menu-icon");
+        const menuList = document.getElementById("menu-list");
 
         menuIcon.addEventListener("click", () => {
-            console.log("Menu icon clicked");
-            dropdownParent.classList.toggle("show-dropdown");
+            menuList.classList.toggle("show");
         });
     });
+
 </script>
+
 </html>

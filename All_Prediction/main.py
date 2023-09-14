@@ -5,9 +5,10 @@ from sklearn.linear_model import LogisticRegression
 import numpy as np
 
 
+
 main = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
@@ -194,6 +195,7 @@ def get_ai_response():
         # Extract and beautify the content
         content = parsed_response['choices'][0]['message']['content']
         beautified_response = content.replace("\n\n", "\n")
+        print(beautified_response)
         return beautified_response
     else:
         return "An error occurred"
